@@ -58,39 +58,39 @@
   -->
   <div class="inbox">
     <div class="item">
-      <input type="checkbox" onmouseover="isMouseOnCheck()">
+      <input type="checkbox" onmouseover="isMouseOnCheck()" onmouseleave = "isMouseOnCheck()">
       <p>This is an inbox layout.</p>
     </div>
     <div class="item">
-      <input type="checkbox" onmouseover="isMouseOnCheck()">
+      <input type="checkbox" onmouseover="isMouseOnCheck()" onmouseleave = "isMouseOnCheck()">
       <p>Check one item</p>
     </div>
     <div class="item">
-      <input type="checkbox" onmouseover="isMouseOnCheck()">
+      <input type="checkbox" onmouseover="isMouseOnCheck()" onmouseleave = "isMouseOnCheck()">
       <p>Hold down your Shift key</p>
     </div>
     <div class="item">
-      <input type="checkbox" onmouseover="isMouseOnCheck()">
+      <input type="checkbox" onmouseover="isMouseOnCheck()" onmouseleave = "isMouseOnCheck()">
       <p>Check a lower item</p>
     </div>
     <div class="item">
-      <input type="checkbox" onmouseover="isMouseOnCheck()">
+      <input type="checkbox" onmouseover="isMouseOnCheck()" onmouseleave = "isMouseOnCheck()">
       <p>Everything inbetween should also be set to checked</p>
     </div>
     <div class="item">
-      <input type="checkbox" onmouseover="isMouseOnCheck()">
+      <input type="checkbox" onmouseover="isMouseOnCheck()" onmouseleave = "isMouseOnCheck()">
       <p>Try do it without any libraries</p>
     </div>
     <div class="item">
-      <input type="checkbox" onmouseover="isMouseOnCheck()">
+      <input type="checkbox" onmouseover="isMouseOnCheck()" onmouseleave = "isMouseOnCheck()">
       <p>Just regular JavaScript</p>
     </div>
     <div class="item">
-      <input type="checkbox" onmouseover="isMouseOnCheck()">
+      <input type="checkbox" onmouseover="isMouseOnCheck()" onmouseleave = "isMouseOnCheck()">
       <p>Good Luck!</p>
     </div>
     <div class="item">
-      <input type="checkbox" onmouseover="isMouseOnCheck()">
+      <input type="checkbox" onmouseenter="isMouseOnCheck()" onmouseleave = "isMouseOnCheck()">
       <p>Don't forget to tweet your result!</p>
     </div>
   </div>
@@ -110,7 +110,6 @@ function checkChecks(e) {
   if(shiftCheck && mouseCheck) {
     console.log("yes shift is checked");
   }
-  //console.table(checkboxes);
 }
 
 function checkShiftOn(e) {
@@ -128,12 +127,13 @@ function checkShiftOff(e) {
 }
 
 function isMouseOnCheck(e) {
-  return mouseCheck ? console.log("false") : console.log("true");
+  mouseCheck ? mouseCheck = false : mouseCheck = true;
+  console.log(mouseCheck);
 }
 
-document.addEventListener('mouseup', checkChecks);
-document.addEventListener('keydown', checkShiftOn);
-document.addEventListener('keyup', checkShiftOff);
+document.addEventListener('mouseup', checkChecks)
+document.addEventListener('keydown', checkShiftOn)
+document.addEventListener('keyup', checkShiftOff)
 
 
 
