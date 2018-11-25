@@ -58,67 +58,82 @@
   -->
   <div class="inbox">
     <div class="item">
-      <input type="checkbox">
+      <input type="checkbox" onmouseover="isMouseOnCheck()">
       <p>This is an inbox layout.</p>
     </div>
     <div class="item">
-      <input type="checkbox">
+      <input type="checkbox" onmouseover="isMouseOnCheck()">
       <p>Check one item</p>
     </div>
     <div class="item">
-      <input type="checkbox">
+      <input type="checkbox" onmouseover="isMouseOnCheck()">
       <p>Hold down your Shift key</p>
     </div>
     <div class="item">
-      <input type="checkbox">
+      <input type="checkbox" onmouseover="isMouseOnCheck()">
       <p>Check a lower item</p>
     </div>
     <div class="item">
-      <input type="checkbox">
+      <input type="checkbox" onmouseover="isMouseOnCheck()">
       <p>Everything inbetween should also be set to checked</p>
     </div>
     <div class="item">
-      <input type="checkbox">
+      <input type="checkbox" onmouseover="isMouseOnCheck()">
       <p>Try do it without any libraries</p>
     </div>
     <div class="item">
-      <input type="checkbox">
+      <input type="checkbox" onmouseover="isMouseOnCheck()">
       <p>Just regular JavaScript</p>
     </div>
     <div class="item">
-      <input type="checkbox">
+      <input type="checkbox" onmouseover="isMouseOnCheck()">
       <p>Good Luck!</p>
     </div>
     <div class="item">
-      <input type="checkbox">
+      <input type="checkbox" onmouseover="isMouseOnCheck()">
       <p>Don't forget to tweet your result!</p>
     </div>
   </div>
 
 <script>
-
+let shiftCheck = false;
+let mouseCheck = false;
 
 function checkChecks(e) {
-  const checkboxes = document.querySelectorAll('input[type=checkbox]');
-  console.table(checkboxes);
+  const checkboxes = [...document.querySelectorAll('input[type=checkbox]')];
+
+  const isChecked = checkboxes.map(function(index) {
+    return index.checked === true;
+  })
+  console.log(isChecked);
+
+  if(shiftCheck && mouseCheck) {
+    console.log("yes shift is checked");
+  }
+  //console.table(checkboxes);
 }
 
 function checkShiftOn(e) {
   if(e.key === 'Shift') {
     console.log("shift pressed!");
+    shiftCheck = true;
   }
 }
 
 function checkShiftOff(e) {
   if(e.key === 'Shift') {
     console.log("shift unpressed!");
+    shiftCheck = false;
   }
 }
 
+function isMouseOnCheck(e) {
+  return mouseCheck ? console.log("false") : console.log("true");
+}
 
-document.addEventListener('mouseup', checkChecks)
-document.addEventListener('keydown', checkShiftOn)
-document.addEventListener('keyup', checkShiftOff)
+document.addEventListener('mouseup', checkChecks);
+document.addEventListener('keydown', checkShiftOn);
+document.addEventListener('keyup', checkShiftOff);
 
 
 
