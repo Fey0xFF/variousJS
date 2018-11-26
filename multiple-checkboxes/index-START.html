@@ -96,6 +96,8 @@
   </div>
 
 <script>
+
+// listeners and console notifications for testing 
 let shiftCheck = false;
 let mouseCheck = false;
 
@@ -135,6 +137,33 @@ document.addEventListener('mouseup', checkChecks)
 document.addEventListener('keydown', checkShiftOn)
 document.addEventListener('keyup', checkShiftOff)
 
+const chkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+
+
+// algorithm
+
+let lastChecked;
+
+function handleCheck(e) {
+  let inBetween = false;
+  if (e.shiftKey && this.checked) {
+    chkboxes.forEach(checkbox => {
+      console.log(checkbox);
+      if(checkbox === this || checkbox === lastChecked) {
+        inBetween = !inBetween;
+        console.log('starting to check in between');
+      }
+
+      if(inBetween) {
+        checkbox.checked = true;
+      }
+    })
+  }
+
+  lastChecked = this;
+}
+
+chkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
 
 
 </script>
