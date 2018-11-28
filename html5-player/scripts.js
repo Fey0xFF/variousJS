@@ -17,4 +17,12 @@ function togglePlay() {
 	}
 }
 
+function skip() {
+	console.log("skip pressed!");
+	video.currentTime += parseInt(this["dataset"].skip);
+}
+
 /* Hook up event listeners */
+
+toggle.addEventListener('mousedown', togglePlay);
+skipButtons.addEventListener('mousedown', skip);
