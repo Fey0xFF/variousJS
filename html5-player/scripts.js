@@ -11,20 +11,17 @@ const ranges = player.querySelectorAll('.player__slider');
 
 function togglePlay() {
 	video.paused ? video.play() : video.pause();
-	updatePlayPauseText();
+	toggle.textContent === "►" ? toggle.textContent = "||" : toggle.textContent = "►";
 }
 
 function skip() {
 	video.currentTime += parseInt(this.dataset.skip);
 }
 
-function updatePlayPauseText() {
-	toggle.textContent === "►" ? toggle.textContent = "||" : toggle.textContent = "►";
-}
 
 /* Hook up event listeners */
 
 
-player.addEventListener('click', togglePlay);
+//player.addEventListener('click', togglePlay);
 toggle.addEventListener('click', togglePlay);
 skipButtons.forEach(button => button.addEventListener('click', skip));
