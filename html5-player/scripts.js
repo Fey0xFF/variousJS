@@ -18,15 +18,15 @@ function skip() {
 	video.currentTime += parseInt(this.dataset.skip);
 }
 
-function updatePlayback() {
-	let propertyName = this.name;
-	video.propertyName = this.value;
-	console.log(video.propertyName);
+function updatePlaybackProperties() {
+	const propertyName = this.name;
+	if (propertyName === "volume") {
+		video.volume = this.value;
+	} else {
+		video.playbackRate = this.value;
+	}
 }
-/* Hook up event listeners */
 
-
-//player.addEventListener('click', togglePlay);
 toggle.addEventListener('click', togglePlay);
 skipButtons.forEach(button => button.addEventListener('click', skip));
-ranges.forEach(range => range.addEventListener('change', updatePlayback))
+ranges.forEach(range => range.addEventListener('change', updatePlaybackProperties))
