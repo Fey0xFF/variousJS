@@ -19,15 +19,13 @@ function skip() {
 }
 
 function updatePlaybackProperties() {
-	const propertyName = this.name;
-	if (propertyName === "volume") {
-		video.volume = this.value;
-	} else {
-		video.playbackRate = this.value;
-	}
+	video[this.name] = this.value;
 }
+
+
 
 video.addEventListener('click', togglePlay);
 toggle.addEventListener('click', togglePlay);
 skipButtons.forEach(button => button.addEventListener('click', skip));
 ranges.forEach(range => range.addEventListener('change', updatePlaybackProperties))
+ranges.forEach(range => range.addEventListener('mousemove', updatePlaybackProperties))
