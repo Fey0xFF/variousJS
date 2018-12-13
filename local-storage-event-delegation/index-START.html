@@ -55,9 +55,14 @@
       `;
     }).join('');
   }
+
+  function toggleDone(e) {
+    if(!e.target.matches('input')) return;
+
+  }
   
   addItems.addEventListener('submit', addItem);
-
+  itemsList.addEventListener('click', toggleDone)
   populateList(items, itemsList)
 
 </script>
