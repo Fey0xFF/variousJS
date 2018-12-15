@@ -23,11 +23,19 @@
       <input type="text" name="item" placeholder="Item Name" required>
       <input type="submit" value="+ Add Item">
     </form>
+    <form class="clear">
+      <input type="submit" value="Clear Order">
+    </form>
+    <form class="order-check-toggle">
+      <input type="submit" value="Check/Uncheck All">
+    </form>    
   </div>
 
 <script>
   const addItems = document.querySelector('.add-items');
   const itemsList = document.querySelector('.plates');
+  const clearBtn = document.querySelector('.clear');
+  const clearCheckToggle = document.querySelector('.order-check-toggle');
   const items = JSON.parse(localStorage.getItem('items')) || [];
 
   function addItem(e) {
@@ -65,10 +73,20 @@
     populateList(items, itemsList);
 
   }
+
+  function clearOrder() {
+    console.log("cleared!");
+  }
+
+  function listToggle() {
+    console.log("list check toggle!");
+  }
   
   addItems.addEventListener('submit', addItem);
   itemsList.addEventListener('click', toggleDone)
-  populateList(items, itemsList)
+  clearBtn.addEventListener('click', clearOrder);
+  clearCheckToggle.addEventListener('click', listToggle);
+  populateList(items, itemsList);
 
 </script>
 
