@@ -74,11 +74,13 @@
 
   }
 
-  function clearOrder() {
+  function clearOrder(e) {
+    e.preventDefault();
     console.log("cleared!");
   }
 
-  function listToggle() {
+  function listToggle(e) {
+    e.preventDefault();
     console.log("list check toggle!");
   }
   
